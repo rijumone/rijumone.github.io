@@ -9,11 +9,13 @@
 <script>
 
 var nLocationFetch = 0;
-
-var intervalHandler = setInterval(function(){
-	getLocation();
-	
+setTimeout(function(){
+	var intervalHandler = setInterval(function(){
+		getLocation();
+		
+	},500);
 },500);
+
 
 function getLocation(){
 	if ("geolocation" in navigator) {
