@@ -14,7 +14,7 @@ setTimeout(function(){
 		getLocation();
 		
 	},500);
-},500);
+},1000);
 
 
 function getLocation(){
@@ -26,7 +26,7 @@ function getLocation(){
 	  		document.getElementById('latitude_div').innerHTML = position.coords.latitude;
 	  		document.getElementById('longitude_div').innerHTML = position.coords.longitude;
 	  	if(document.getElementById('latitude_div').data_color == "red"){
-	  		document.getElementById('latitude_div').style = "color:blue";
+	  		document.getElementById('latitude_div').style = "color:blue;";
 	  		document.getElementById('latitude_div').data_color ="blue";
 	  	} else{
 	  		document.getElementById('latitude_div').style = "color:red";
