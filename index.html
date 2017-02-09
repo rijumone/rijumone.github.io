@@ -45,7 +45,7 @@ function getLocation(){
 	} else {
 	  console.log("geolocation is NOT available");
 	}
-	if(nLocationFetch >= 100){
+	if(nLocationFetch > 100){
 		window.clearInterval(intervalHandler);
 	}	
 	nLocationFetch++;
