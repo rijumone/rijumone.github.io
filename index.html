@@ -1,1 +1,51 @@
-underground syndicate
+<style type="text/css">
+	div : {
+		font-size: 50px;
+	}
+</style>
+<div id="latitude_div" data_color="red"></div>
+<div id="longitude_div" data_color="blue"></div>
+
+<script>
+
+var nLocationFetch = 0;
+
+var intervalHandler = setInterval(function(){
+	getLocation();
+	
+},500);
+
+function getLocation(){
+	if ("geolocation" in navigator) {
+	  /*  */ console.log("geolocation is available");
+	  	navigator.geolocation.getCurrentPosition(function(position) {
+	  		// do_something(position.coords.latitude, position.coords.longitude);
+	  		console.log(position.coords);
+	  		document.getElementById('latitude_div').innerHTML = position.coords.latitude;
+	  		document.getElementById('longitude_div').innerHTML = position.coords.longitude;
+	  	if(document.getElementById('latitude_div').data_color == "red"){
+	  		document.getElementById('latitude_div').style = "color:blue";
+	  		document.getElementById('latitude_div').data_color ="blue";
+	  	} else{
+	  		document.getElementById('latitude_div').style = "color:red";
+	  		document.getElementById('latitude_div').data_color = "red";
+	  	}
+	  	if(document.getElementById('longitude_div').data_color=="red"){
+	  		document.getElementById('longitude_div').style = "color:blue";
+	  		document.getElementById('longitude_div').data_color="blue";
+	  	} else{
+	  		document.getElementById('longitude_div').style = "color:red";
+	  		document.getElementById('longitude_div').data_color="red";
+	  	}	
+	  		// document.getElementById('longitude_div').value(position.coords.longitude);
+		});
+		console.log(nLocationFetch);
+	} else {
+	  console.log("geolocation is NOT available");
+	}
+	if(nLocationFetch >= 100){
+		window.clearInterval(intervalHandler);
+	}	
+	nLocationFetch++;
+}
+</script>
